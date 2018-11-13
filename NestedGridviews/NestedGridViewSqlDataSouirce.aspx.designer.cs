@@ -10,7 +10,7 @@
 namespace NestedGridviews {
     
     
-    public partial class _102 {
+    public partial class NestedGridView102 {
         
         /// <summary>
         /// sdsCustomer control.

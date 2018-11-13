@@ -10,7 +10,7 @@
 namespace NestedGridviews {
     
     
-    public partial class _101 {
+    public partial class NestedGridViewAdo {
         
         /// <summary>
         /// pnlCustomers control.

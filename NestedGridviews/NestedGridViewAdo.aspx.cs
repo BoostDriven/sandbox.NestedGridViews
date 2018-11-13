@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace NestedGridviews
 {
-    public partial class _101 : System.Web.UI.Page
+    public partial class NestedGridViewAdo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,6 +15,7 @@ namespace NestedGridviews
                 gvCustomers.DataSource = GetData("select top 10 * from Customers");
                 gvCustomers.DataBind();
             }
+           
         }
 
         private static DataTable GetData(string query)
@@ -49,6 +50,9 @@ namespace NestedGridviews
                 gvOrders.ToolTip = customerId;
                 gvOrders.DataSource = GetData(string.Format("select * from Orders where customer_id='{0}'", customerId));
                 gvOrders.DataBind();
+
+                //Expand the Child grid
+                //ClientScript.RegisterStartupScript(GetType(), "Expand", "<SCRIPT LANGUAGE='javascript'>expandCollapse('div" + ((DataRowView)e.Row.DataItem)["id"].ToString() + "', 'one');</script>");
             }
         }
 
@@ -66,5 +70,7 @@ namespace NestedGridviews
             gvOrders.DataSource = GetData(string.Format("select * from Orders where customer_id={0}", gvOrders.ToolTip));
             gvOrders.DataBind();
         }
+
+     
     }
 }
